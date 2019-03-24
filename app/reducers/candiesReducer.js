@@ -13,8 +13,12 @@ const gotCandies = candies => ({
 export const getCandies = () => {
   //the thunk
   return async dispatch => {
-    const { data } = await axios.get('/api/candies');
-    dispatch(gotCandies(data));
+    try {
+      const { data } = await axios.get('/api/candies');
+      dispatch(gotCandies(data));
+    } catch (error) {
+      console.error(error);
+    }
   };
 };
 

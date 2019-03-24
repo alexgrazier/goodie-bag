@@ -43,7 +43,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   console.log('Mapping dispatch to props');
   return {
-    getCandies: dispatch(getCandies()),
+    getCandies: () => dispatch(getCandies()),
   };
 };
 
