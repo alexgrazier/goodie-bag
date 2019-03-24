@@ -2,11 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import candiesReducer, { getCandies } from '../reducers/candiesReducer';
 
-// const AllCandies = props => {
-//   console.log('PROPS-------', props);
-//   return null;
-// };
-
 class AllCandies extends React.Component {
   componentDidMount() {
     this.props.getCandies();
