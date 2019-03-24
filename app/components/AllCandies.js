@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import candiesReducer, { getCandies } from '../reducers/candiesReducer';
+import SingleCandy from './SingleCandy';
 
 class AllCandies extends React.Component {
   componentDidMount() {
@@ -13,16 +14,11 @@ class AllCandies extends React.Component {
     return (
       <div>
         <h1>ALL CANDIES</h1>
-        {this.props.candies.map(candy => {
-          return (
-            <div key={candy.id}>
-              <h2>{candy.name}</h2>
-              <h3>{candy.description}</h3>
-              <p>Quantity: {candy.quantity}</p>
-              <img src={candy.imageUrl} />
-            </div>
-          );
-        })}
+        <ul>
+          {this.props.candies.map(candy => (
+            <SingleCandy key={candy.id} id={candy.id} {...candy} />
+          ))}
+        </ul>
       </div>
     );
   }
@@ -46,3 +42,14 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(AllCandies);
+
+// {this.props.candies.map(candy => {
+//   return (
+//     <div key={candy.id}>
+//       <h2>{candy.name}</h2>
+//       <h3>{candy.description}</h3>
+//       <p>Quantity: {candy.quantity}</p>
+//       <img src={candy.imageUrl} />
+//     </div>
+//   );
+// })}
