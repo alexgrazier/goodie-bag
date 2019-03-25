@@ -6,14 +6,12 @@ const SingleCandy = props => {
   console.log('props.match', props.match);
   const { id, name, description, quantity, imageUrl } = props;
   return (
-    <li>
-      <Link to={`candies/${id}`}>
-        <h2>{name}</h2>
-      </Link>
+    <div>
+      <h2>{name}</h2>
       <h3>{description}</h3>
       <p>Quantity: {quantity}</p>
       <img src={imageUrl} />
-    </li>
+    </div>
   );
 };
 

@@ -13,6 +13,17 @@ router.get('/candies', async (req, res, next) => {
   }
 });
 
+//do we need async await here?
+//starts with api
+router.get('/candies/:id', async (req, res, next) => {
+  try {
+    const candy = await Candy.findById(req.params.id);
+    res.json(candy);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // Your routes go here!
 // NOTE: Any routes that you put here are ALREADY mounted on `/api`
 // You can put all routes in this file HOWEVER,
