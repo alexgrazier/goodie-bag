@@ -36,6 +36,7 @@ const mapStateToProps = state => {
   console.log('Mapping state to props, state :', state);
   return {
     candies: state.candies,
+    loading: state.loading
   };
 };
 

@@ -30,7 +30,7 @@ export const getCandies = () => {
   };
 };
 
-export const getCandy = () => {
+export const getCandy = candyId => {
   //the thunk
   return async dispatch => {
     try {
@@ -53,7 +53,7 @@ const candiesReducer = (state = initialState, action) => {
     case GOT_CANDIES_FROM_SERVER:
       return { ...state, candies: action.candies };
     case GOT_SINGLE_CANDY_FROM_SERVER:
-      return { ...state, candy: action.candy };
+      return { ...state, candy: action.candy, loading: false };
     default:
       return state;
   }
