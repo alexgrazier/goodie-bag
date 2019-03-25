@@ -21,11 +21,6 @@ class AllCandies extends React.Component {
               <Link to={`candies/${candy.id}`}>
                 <h2>{candy.name}</h2>
               </Link>
-              {/* <Route
-                exact
-                path={`candies/${candy.id}`}
-                render={() => <SingleCandy id={candy.id} />}
-              /> */}
               <h3>{candy.description}</h3>
               <p>Quantity: {candy.quantity}</p>
               <img src={candy.imageUrl} />
@@ -40,6 +35,7 @@ class AllCandies extends React.Component {
 const mapStateToProps = state => {
   console.log('Mapping state to props, state :', state);
   return {
+    //loading: state.loading,
     candies: state.candies,
   };
 };

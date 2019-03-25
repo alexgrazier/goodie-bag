@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import AllCandies from './AllCandies';
 import SingleCandy from './SingleCandy';
+import Home from './Home';
 
 const Root = () => {
   return (
@@ -21,6 +22,7 @@ const Root = () => {
           <p>What a nice home page for your goodies!</p>
         </main>
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route exact path="/candies" component={AllCandies} />
           <Route exact path="/candies/:id" component={SingleCandy} />
         </Switch>

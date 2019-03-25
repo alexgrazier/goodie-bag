@@ -3,9 +3,19 @@ import { connect } from 'react-redux';
 import { getCandy } from '../reducers/candiesReducer';
 
 class SingleCandy extends React.Component {
+  constructor() {
+    super();
+    this.increase = this.increase.bind(this);
+  }
+
   componentDidMount() {
     const candyId = this.props.match.params.id;
     this.props.getCandy(candyId);
+  }
+
+  increase() {
+    // preventDefault();
+    this.props.candy.quantity = this.props.candy.quantity + 1;
   }
 
   render() {
@@ -17,6 +27,10 @@ class SingleCandy extends React.Component {
         <h2>{name}</h2>
         <h3>{description}</h3>
         <p>Quantity: {quantity}</p>
+        <button onClick={() => this.increase()} id="increase">
+          Increase Quantity
+        </button>
+        <button id="decrease">Decrease Quantity</button>
         <img src={imageUrl} />
       </div>
     );
