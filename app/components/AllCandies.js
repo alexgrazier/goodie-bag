@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import candiesReducer, { getCandies } from '../reducers/candiesReducer';
 import SingleCandy from './SingleCandy';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 class AllCandies extends React.Component {
   componentDidMount() {
@@ -11,7 +11,7 @@ class AllCandies extends React.Component {
 
   render() {
     // console.log('PROPS--', this.props);
-    if (this.props.loading) return <div>Loading...</div>;
+    // if (this.props.loading) return <div>Loading...</div>;
     return (
       <div>
         <h1>ALL CANDIES</h1>
@@ -21,6 +21,11 @@ class AllCandies extends React.Component {
               <Link to={`candies/${candy.id}`}>
                 <h2>{candy.name}</h2>
               </Link>
+              {/* <Route
+                exact
+                path={`candies/${candy.id}`}
+                render={() => <SingleCandy id={candy.id} />}
+              /> */}
               <h3>{candy.description}</h3>
               <p>Quantity: {candy.quantity}</p>
               <img src={candy.imageUrl} />
@@ -36,7 +41,6 @@ const mapStateToProps = state => {
   console.log('Mapping state to props, state :', state);
   return {
     candies: state.candies,
-    loading: state.loading
   };
 };
 

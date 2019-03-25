@@ -29,7 +29,8 @@ nav {
   padding: 10px;
 }
 
-main {
+main,
+.candy {
   align-items: center;
   display: flex;
   flex-direction: column;

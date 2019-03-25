@@ -5,13 +5,13 @@ const GOT_CANDIES_FROM_SERVER = 'GOT_CANDIES_FROM_SERVER';
 const GOT_SINGLE_CANDY_FROM_SERVER = 'GOT_SINGLE_CANDY_FROM_SERVER';
 
 //ACTION CREATORS
-//All candies
+//All candies action creator
 const gotCandies = candies => ({
   type: GOT_CANDIES_FROM_SERVER,
   candies,
 });
 
-//Single Candy
+//Single Candy Action Creator
 const gotCandy = candy => ({
   type: GOT_SINGLE_CANDY_FROM_SERVER,
   candy,
@@ -34,7 +34,7 @@ export const getCandy = candyId => {
   //the thunk
   return async dispatch => {
     try {
-      const { data } = await axios.get(`api/candies/${candyId}`);
+      const { data } = await axios.get(`/api/candies/${candyId}`);
       dispatch(gotCandy(data));
     } catch (error) {
       console.error(error);
